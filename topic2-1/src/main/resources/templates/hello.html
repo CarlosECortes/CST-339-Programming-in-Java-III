@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Hello</title>
+	</head>
+	<body>
+		<h2 th:text="${message}">Hello World</h2>
+		<h3 th:if="${message2 != null}" th:text="${message2}"></h3>
+		<a th:href="@{/hello/test4(message='Hello World from a Thymeleaf template!')}">
+		 Go to test4
+		</a>
+		<br/>
+		<a th:href="@{/hello/test2}">Go to test2</a>
+		   <br/>
+		   <a th:href="@{/hello/test3}">Go to test3</a>
+	</body>
+</html>
