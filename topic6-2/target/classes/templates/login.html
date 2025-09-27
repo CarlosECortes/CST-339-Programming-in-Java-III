@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/defaultTemplate}">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login</title>
+</head>
+<body>
+  <!-- Page content goes into the 'content' fragment -->
+  <div layout:fragment="content">
+    <h3>Sign In</h3>
+
+    <!-- Spring Security requires action="/login" -->
+    <form th:action="@{/login}" method="post">
+      <table>
+        <tr>
+          <td><label for="username">User Name:</label></td>
+          <td>
+            <input id="username" type="text" name="username" required />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="password">Password:</label></td>
+          <td>
+            <input id="password" type="password" name="password" required />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <button type="submit">Login</button>
+          </td>
+        </tr>
+      </table>
+
+      <!-- Error message if login fails -->
+      <div th:if="${param.error}">
+        <p style="color:red;">Invalid User Name or Password</p>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
